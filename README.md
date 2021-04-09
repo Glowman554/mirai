@@ -129,6 +129,7 @@ Now restart mysql:
 sudo systemctl restart mysql
 ```
 <br>
+
 ### Now we need to change some settings we will begin with the domain.  
 You can use whatever domain you like we will register it later using piole.
 ```
@@ -225,4 +226,10 @@ You will be asked to login you can do that with the user we inserted earlier int
 [!] Do NOT share your credentials!
 Ready
 janick@botnet#
+```
+<br>
+
+Finaly to see a list of attacks type:
+```
+janick@botnet# ?
 ```
