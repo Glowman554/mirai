@@ -134,7 +134,7 @@ bash ./build.sh release telnet
 Let's install the binary's to apache2:
 ```
 cd release
-bash ../apache2.sh
+sudo bash ../apache2.sh
 ```
 <br>
 
