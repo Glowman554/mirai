@@ -232,4 +232,15 @@ janick@botnet#
 Finaly to see a list of attacks type:
 ```
 janick@botnet# ?
+Available attack list
+udp: UDP flood
+dns: DNS resolver flood using the targets domain, input IP is ignored
+stomp: TCP stomp flood
+greip: GRE IP flood
+greeth: GRE Ethernet flood
+vse: Valve source engine specific flood
+syn: SYN flood
+ack: ACK flood
+udpplain: UDP flood with less options. optimized for higher PPS
+http: HTTP flood
 ```
