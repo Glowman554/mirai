@@ -198,7 +198,7 @@ screen -S mirai-cnc sudo ./cnc
 To run a bot use:
 ```
 cd debug
-screen -S mirai-bot sudo ./mirai.dbd
+screen -S mirai-bot sudo ./mirai.dbg
 ```
 <br>
 
