@@ -45,6 +45,7 @@ mv cross-compiler-x86_64 x86_64
 echo "Adding path variables in ~/.bashrc"
 echo " " >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/armv4l/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/armv5l/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/i586/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/m68k/bin" >> ~/.bashrc

