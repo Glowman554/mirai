@@ -110,8 +110,9 @@ The last step of creating the database is to add an cnc user account:
 sudo mysql -p
 
 Then type:
-
+USE mirai;
 INSERT INTO users VALUES (NULL, 'insert-mirai-user', 'insert-mirai-pass', 0, 0, 0, 0, -1, 1, 30, '');
+exit;
 ```
 <br>
 
@@ -145,6 +146,18 @@ addr.sin_addr.s_addr = INET_ADDR(8,8,8,8);
 In my case i need to change it to:
 
 addr.sin_addr.s_addr = INET_ADDR(192, 168, 178, 114);
+```
+<br>
+
+As the last step before compiling it we need to open cnc/main.go and edit following
+```
+const DatabaseUser string   = "root"
+const DatabasePass string   = "password"
+
+In my case i need to change it to:
+
+const DatabaseUser string   = "root"
+const DatabasePass string   = "lol_you_want_to_know_this"
 ```
 <br>
 
