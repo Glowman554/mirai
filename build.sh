@@ -73,6 +73,7 @@ elif [ $# == 1 ]; then
 		echo "Installing cross compilers!"
 		sudo bash ./tools/compilers.sh
 		echo "Atting path variables in ~/.bashrc"
+		echo " " >> ~/.bashrc
 		echo "export PATH=\$PATH:/etc/xcompile/armv4l/bin" >> ~/.bashrc
 		echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
 		echo "export PATH=\$PATH:/etc/xcompile/i586/bin" >> ~/.bashrc
@@ -118,7 +119,7 @@ elif [ $# == 1 ]; then
 		read -p "MySQL password: " MYSQL_PASSWD
 
 		echo "Setting up MySQL password!"
-		sudo mysqladmin -u root password $MYSQL_PASSWD
+		echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_PASSWD';" | sudo mysql
 		sed -i "s/password/$MYSQL_PASSWD/" cnc/main.go
 
 		sudo systemctl restart mysql

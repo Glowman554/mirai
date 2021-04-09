@@ -183,6 +183,20 @@ cp prompt.txt ./debug/.
 ```
 <br>
 
+### Express setup (Beta!)
+Run:
+```
+bash build.sh dependencies
+(restart shell)
+bash build.sh mysql-setup
+mkdir debug
+bash build.sh debug telnet
+bash build.sh setup-domain
+bash build.sh debug telnet
+cp prompt.txt ./debug/.
+```
+<br>
+
 ### Now its time to setup pihole
 To do this you need to login into pihole and go to Local DNS/DNS Records and type in the domain you used earlier in this tutorial and the ip of the server where the cnc is supposed to run on. **Don't forget to click on add!**
 <br>
