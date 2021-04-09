@@ -1,3 +1,5 @@
+apt install gcc-arm-linux-gnueabihf
+
 mkdir /etc/xcompile
 cd /etc/xcompile
  

