@@ -57,6 +57,7 @@ go get github.com/mattn/go-shellwords
 
 ### Now we can compile it for the first time :D
 ```
+mkdir debug
 bash ./build.sh debug telnet
 ```
 <br>
