@@ -81,7 +81,7 @@ struct resolv_entries *resolv_lookup(char *domain)
 
     util_zero(&addr, sizeof (struct sockaddr_in));
     addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = INET_ADDR(8,8,8,8);
+    addr.sin_addr.s_addr = INET_ADDR(DNS_0, DNS_1, DNS_2, DNS_3);
     addr.sin_port = htons(53);
 
     // Set up the dns query

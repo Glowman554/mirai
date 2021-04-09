@@ -42,4 +42,27 @@ mv cross-compiler-sh4 sh4
 mv cross-compiler-sparc sparc
 mv cross-compiler-x86_64 x86_64
 
-echo Done!
+echo "Adding path variables in ~/.bashrc"
+echo " " >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/armv4l/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/i586/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/m68k/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/mips/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/mipsel/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/powerpc/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/powerpc-440fp/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/sh4/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/sparc/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
+echo "export GOPATH=\$HOME/Documents/go" >> ~/.bashrc
+
+echo "Setting go path for dependecie install"
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Documents/go
+
+go get github.com/go-sql-driver/mysql
+go get github.com/mattn/go-shellwords
+
+echo "Done! please restart shell!"
