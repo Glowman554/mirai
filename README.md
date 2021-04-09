@@ -2,7 +2,7 @@
 
 ## What you need:
 - Working pihole setup
-- Ubuntu / Debian based linux distribution
+- Ubuntu / Debian based linux distribution (tested on elementary os)
 - Copy of mirai source code
 
 ## What we will do
