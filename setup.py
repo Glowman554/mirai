@@ -27,7 +27,7 @@ if result.read() == '':
     sys.exit(1)
 
 def show_dialog(options, define_value):
-    title = "Mirai configr"
+    title = "Mirai config"
 
     if options['type'] == 'text':
         result = os.popen(frontend + ' --stdout --title "' + title + '"  --inputbox "' + options['desc'] + '" 0 0 "' + define_value + '"').readline()
