@@ -55,7 +55,7 @@ python3 setup.py
 ```
 <br>
 
-### Now we can compile it for the second time :D and copy the prompt.txt file
+### Now we can compile it for the second time :D
 ```
 bash ./build.sh debug telnet
 ```
