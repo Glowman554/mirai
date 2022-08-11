@@ -30,7 +30,7 @@ typedef uint16_t port_t;
 #define CNC_OP_PROXY        0x30
 #define CNC_OP_ATTACK       0x40
 
-ipv4_t LOCAL_ADDR;
+extern ipv4_t LOCAL_ADDR;
 
 #ifdef DEBUG
 static char *outptr;
