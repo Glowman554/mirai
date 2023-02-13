@@ -61,11 +61,11 @@ echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
 echo "export GOPATH=\$HOME/Documents/go" >> ~/.bashrc
 
-echo "Setting go path for dependecie install"
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/Documents/go
+#echo "Setting go path for dependecie install"
+#export PATH=$PATH:/usr/local/go/bin
+#export GOPATH=$HOME/Documents/go
 
-go get github.com/go-sql-driver/mysql
-go get github.com/mattn/go-shellwords
+#go get github.com/go-sql-driver/mysql
+#go get github.com/mattn/go-shellwords
 
 echo "Done! please restart shell!"
