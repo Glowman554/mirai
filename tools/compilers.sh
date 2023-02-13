@@ -59,7 +59,7 @@ echo "export PATH=\$PATH:/etc/xcompile/sh4/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/sparc/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/etc/xcompile/armv6l/bin" >> ~/.bashrc
 echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
-echo "export GOPATH=\$HOME/Documents/go" >> ~/.bashrc
+#echo "export GOPATH=\$HOME/Documents/go" >> ~/.bashrc
 
 #echo "Setting go path for dependecie install"
 #export PATH=$PATH:/usr/local/go/bin
