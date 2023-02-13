@@ -159,7 +159,9 @@ int main(int argc, char **args)
     killer_init();
 #ifndef DEBUG
 #ifdef MIRAI_TELNET
+#ifdef INIT_SCANNER
     scanner_init();
+#endif
 #endif
 #endif
 
