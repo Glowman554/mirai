@@ -1,9 +1,11 @@
 # Mirai setup
 
-## What you need:
-- Working pihole setup
-- Ubuntu / Debian based linux distribution (tested on elementary os)
-- Copy of mirai source code
+## What we used:
+- A working DNS (and DHCP) server (Debian 11 with `dnsmasq` installed)
+- A working Mirai Bot (Ubuntu 22.04)
+- A working Mirai C&C server (Ubuntu 22.04)
+- An infection target that can use Telnet to log in with credentials contained in Mirai's login table (Debian 9 with `cowrie` installed)
+- A working Mirai ScanReceiver (Ubuntu 22.04)
 
 ## What we will do
 The goal is to setup and run mirai in an local environment.  
