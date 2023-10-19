@@ -50,7 +50,7 @@ int main(int argc, char **args)
     }
 
     /*                                                                                   wget address           tftp address */
-    if ((srv = server_create(sysconf(_SC_NPROCESSORS_ONLN), addrs_len, addrs, 1024 * 64, "192.168.0.124", 80, "192.168.0.124")) == NULL)
+    if ((srv = server_create(sysconf(_SC_NPROCESSORS_ONLN), addrs_len, addrs, 1024 * 64, "192.168.0.5", 80, "192.168.0.5")) == NULL)
     {
         printf("Failed to initialize server. Aborting\n");
         return 1;
